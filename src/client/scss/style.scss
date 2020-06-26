@@ -3,18 +3,18 @@ body {
 }
 header,
 footer {
-  height: 50px;
-}
-header#header {
-  background: darkblue;
-}
-
-footer {
-  padding: 20px 0;
-  background: gray;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px 0;
+}
+header#header {
+  background: darkblue;
+  color: #fff;
+}
+
+footer {
+  background: gray;
 }
 
 main {

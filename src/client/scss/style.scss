@@ -9,6 +9,14 @@ header#header {
   background: darkblue;
 }
 
+footer {
+  padding: 20px 0;
+  background: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 main {
   background: #e7e7e7;
   padding: 50px 0;

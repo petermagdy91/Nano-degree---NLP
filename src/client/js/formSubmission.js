@@ -9,12 +9,14 @@ const text = document.getElementById("text");
 function submitForm(e) {
   e.preventDefault();
   let formText = document.getElementById("name").value;
-  console.log(formText);
   if (Client.validateForm(formText)) {
+    let sentWord = {
+      text: formText
+    };
     fetch("http://localhost:2711/all", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ formText })
+      body: JSON.stringify(sentWord)
     })
       .then(res => {
         return res.json();

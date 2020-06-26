@@ -36,13 +36,13 @@ app.get("/", function(req, res) {
 });
 
 app.post("/all", (req, res) => {
-  console.log(req.body);
   textapi.sentiment(
     {
-      text: req.body
+      text: req.body.text
     },
     function(error, response) {
       if (error === null) {
+        console.log(response);
         res.send(response);
       }
     }

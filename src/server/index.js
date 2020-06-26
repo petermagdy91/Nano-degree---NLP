@@ -1,6 +1,6 @@
 const dotenv = require("dotenv");
 dotenv.config();
-
+var path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -29,18 +29,20 @@ app.use(express.static("dist"));
 // Setup Server
 app.listen(port, function() {
   console.log(`server is running on port: ${port}!`);
-  console.log(`${process.env.API_KEY}`);
-  //console.log(mockAPIResponse)
 });
 
-app.get("/all", (req, res) => {
+app.get("/", function(req, res) {
+  res.sendFile(path.resolve("dist/index.html"));
+});
+
+app.post("/all", (req, res) => {
+  console.log(req.body);
   textapi.sentiment(
     {
-      url: "https://en.wikipedia.org/wiki/Blog"
+      text: req.body
     },
     function(error, response) {
       if (error === null) {
-        console.log(response);
         res.send(response);
       }
     }

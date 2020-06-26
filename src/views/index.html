@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script type="text/javascript" src=""></script>
+  </head>
+  <body>
+    <header id="header"></header>
+    <main>
+      <section>
+        <form class="" onsubmit="return Client.submitForm(event)">
+          <input
+            id="name"
+            type="text"
+            name="input"
+            value=""
+            placeholder="Name"
+          />
+          <input
+            type="submit"
+            name=""
+            value="submit"
+            onclick="return Client.submitForm(event)"
+            onsubmit="return Client.submitForm(event)"
+          />
+        </form>
+      </section>
+      <section>
+        <strong>Form Results:</strong>
+        <div id="results">
+          <div><span>Polarity:</span> <span id="polarity"></span></div>
+          <div>
+            <span>Polarity Confidence:</span>
+            <span id="polarity_confidence"></span>
+          </div>
+          <div><span>Subjectivity:</span> <span id="subjectivity"></span></div>
+          <div>
+            <span>Subjectivity Confidence:</span>
+            <span id="subjectivity_confidence"></span>
+          </div>
+          <div><span>Text:</span> <span id="text"></span></div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer"></footer>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+}
+header,
+footer {
+  height: 50px;
+}
+header#header {
+  background: darkblue;
+}
+
+main {
+  background: #e7e7e7;
+  padding: 50px 0;
+}
+section {
+  width: 30%;
+  margin: 0 auto 30px;
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0 0 11px 1px #b2aeae;
+
+  #results {
+    > div {
+      padding: 15px;
+      border-bottom: 1px solid #e7e7e7;
+      > span:first-child {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+  justify-content: space-between;
+  > input {
+    height: 50px;
+    &[type="text"] {
+      padding: 0 15px;
+    }
+  }
+}

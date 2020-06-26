@@ -15,7 +15,7 @@ function submitForm(e) {
     let sentWord = {
       url: formText
     };
-    fetch("http://localhost:2711/all", {
+    fetch("/all", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(sentWord)

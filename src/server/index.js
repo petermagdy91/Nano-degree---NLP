@@ -1,10 +1,48 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const port = "2711";
+
+//initialize Aylien
 var AYLIENTextAPI = require("aylien_textapi");
 var textapi = new AYLIENTextAPI({
-  application_id: "e73d40b4",
-  application_key: "09ce8375cf8488e2bc2bc9bf994ae1f0"
+  application_id: `${process.env.API_ID}`,
+  application_key: `${process.env.API_KEY}`
 });
 
-console.log(`Your API key is ${process.env.API_KEY}`);
+// Start up an instance of app
+const app = express();
+
+//Here we are configuring express to use body-parser as middle-ware.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Cors for cross origin allowance
+app.use(cors());
+
+// Initialize the main project folder
+app.use(express.static("dist"));
+
+// Setup Server
+app.listen(port, function() {
+  console.log(`server is running on port: ${port}!`);
+  console.log(`${process.env.API_KEY}`);
+  //console.log(mockAPIResponse)
+});
+
+app.get("/all", (req, res) => {
+  textapi.sentiment(
+    {
+      url: "https://en.wikipedia.org/wiki/Blog"
+    },
+    function(error, response) {
+      if (error === null) {
+        console.log(response);
+        res.send(response);
+      }
+    }
+  );
+});

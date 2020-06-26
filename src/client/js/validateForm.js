@@ -1,9 +1,9 @@
-function validateForm(inputValue) {
-  if (inputValue.trim(" ") !== "") {
-    return true;
-  } else {
+function validateForm(inputText) {
+  var regex = RegExp("^(http|https)://");
+  if (regex.test(inputText) == false) {
     return false;
+  } else {
+    return true;
   }
 }
-
 export { validateForm };

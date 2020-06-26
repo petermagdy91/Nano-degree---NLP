@@ -5,13 +5,15 @@ const subjectivity_confidence = document.getElementById(
   "subjectivity_confidence"
 );
 const text = document.getElementById("text");
+const validationMessage = document.getElementById("validation-message");
 
 function submitForm(e) {
   e.preventDefault();
-  let formText = document.getElementById("name").value;
+  let formText = document.getElementById("url").value;
   if (Client.validateForm(formText)) {
+    validationMessage.style.display = "none";
     let sentWord = {
-      text: formText
+      url: formText
     };
     fetch("http://localhost:2711/all", {
       method: "POST",
@@ -28,6 +30,8 @@ function submitForm(e) {
         subjectivity_confidence.innerHTML = `${data.subjectivity_confidence}`;
         text.innerHTML = `${data.text}`;
       });
+  } else {
+    validationMessage.style.display = "block";
   }
 }
 

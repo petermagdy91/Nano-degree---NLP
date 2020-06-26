@@ -38,11 +38,10 @@ app.get("/", function(req, res) {
 app.post("/all", (req, res) => {
   textapi.sentiment(
     {
-      text: req.body.text
+      url: req.body.url
     },
     function(error, response) {
       if (error === null) {
-        console.log(response);
         res.send(response);
       }
     }
